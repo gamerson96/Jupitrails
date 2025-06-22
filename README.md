@@ -318,13 +318,13 @@ JupiTrails is proudly developed by **Team Nexus**, a collaborative group of pass
 
 <div align="center">
 
-| Name                   | Email                         |
-| ---------------------- | ----------------------------- |
-| **Ch. Shashi Vardhan** | shashihacker18@gmail.com      |
-| **Shivamani Yamana**   | shivamaniyamana2003@gmail.com |
-| **Mandula Srinivas**   | srinuchinna2005@gmail.com     |
-| **T Savith**           | savittupaki@gmail.com         |
-| **Richitha**           | richitha00@gmail.com          |
+| Name                   |
+| ---------------------- |
+| **Ch. Shashi Vardhan** |
+| **Shivamani Yamana**   |
+| **Mandula Srinivas**   |
+| **T Savith**           |
+| **Richitha**           |
 
 </div>
 
