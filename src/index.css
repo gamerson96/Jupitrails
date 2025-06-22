@@ -76,3 +76,191 @@
 .wallet-adapter-button-trigger:hover {
   background: linear-gradient(135deg, #8b5cf6, #34d399) !important;
 }
+
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  /* Improve touch targets for mobile */
+  .wallet-adapter-button {
+    min-height: 44px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Better token selector touch targets */
+  .token-selector-button {
+    min-height: 48px;
+  }
+
+  /* Better input field sizing for mobile */
+  input[type="text"],
+  input[inputmode="decimal"] {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* ReactFlow mobile optimizations */
+  .react-flow {
+    touch-action: pan-x pan-y;
+  }
+
+  /* Scrollbar adjustments for mobile */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Ensure dropdown overlays are properly sized */
+  .token-dropdown {
+    max-width: calc(100vw - 2rem);
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Ensure buttons are touch-friendly on mobile */
+  .mobile-touch-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve token selector visibility on mobile */
+  .token-selector-mobile {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Better mobile button spacing */
+  .mobile-button-spacing {
+    margin: 8px 0;
+  }
+
+  /* Ensure arrows are visible on mobile */
+  .swap-arrow-mobile {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid #7c3aed !important;
+  }
+}
+
+/* Wallet button responsive styling */
+@media (max-width: 640px) {
+  .wallet-adapter-button {
+    font-size: 14px !important;
+    padding: 8px 16px !important;
+    min-height: 44px !important;
+  }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .main-layout {
+    gap: 1rem;
+  }
+
+  .control-panel {
+    max-width: none;
+  }
+}
+
+/* Prevent horizontal scroll on small screens */
+@media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+  }
+}
+
+/* Touch-friendly button sizing */
+@media (max-width: 640px) {
+  button {
+    min-height: 44px;
+  }
+
+  /* Larger touch targets for important actions */
+  .swap-button,
+  .route-button {
+    min-height: 48px;
+    padding: 14px 20px;
+  }
+}
+
+/* ReactFlow Mobile Arrow Fix */
+.react-flow__edge-path {
+  pointer-events: none;
+}
+
+.react-flow__edge {
+  pointer-events: none;
+}
+
+.react-flow__arrowhead,
+.react-flow__edge-path,
+.react-flow__edge-label {
+  pointer-events: none !important;
+}
+
+/* Ensure arrows are visible on mobile */
+@media (max-width: 768px) {
+  .react-flow__arrowhead {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .react-flow__edge-path {
+    display: block !important;
+    visibility: visible !important;
+    stroke-width: 3px !important;
+  }
+
+  .react-flow__edge {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* Mobile-specific arrow styling */
+  .react-flow__arrowhead path {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+
+  /* Swap arrow mobile positioning */
+  .swap-arrow-mobile {
+    position: relative !important;
+    z-index: 50 !important;
+    touch-action: manipulation;
+  }
+
+  /* Better touch target for mobile swap button */
+  .mobile-touch-button {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    padding: 12px !important;
+  }
+}
+
+/* Mobile-specific swap arrow fixes */
+@media (max-width: 640px) {
+  .swap-arrow-mobile {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 8px auto;
+    z-index: 20;
+  }
+
+  /* Ensure arrows are visible in ReactFlow on mobile */
+  .react-flow__edge-path {
+    stroke-width: 3px !important;
+  }
+
+  .react-flow__arrowhead {
+    fill: currentColor !important;
+    stroke: currentColor !important;
+  }
+
+  .react-flow__edge {
+    pointer-events: all !important;
+  }
+}

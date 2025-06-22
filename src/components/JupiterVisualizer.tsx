@@ -361,29 +361,31 @@ export const JupiterVisualizer: React.FC = () => {
           {/* Header with Logo and Wallet */}
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-2">
-              <div className="flex justify-center items-center w-8 h-8">
+              <div className="flex justify-center items-center w-6 sm:w-8 h-6 sm:h-8">
                 <img
                   src="/assets/logo.svg"
                   alt="JupiTrails Logo"
-                  className="w-8 h-8"
+                  className="w-6 sm:w-8 h-6 sm:h-8"
                 />
               </div>
-              <h1 className="bg-clip-text bg-gradient-to-r from-jupiter-primary to-jupiter-secondary font-space font-bold text-transparent text-xl">
+              <h1 className="bg-clip-text bg-gradient-to-r from-jupiter-primary to-jupiter-secondary font-space font-bold text-transparent text-lg sm:text-xl">
                 JupiTrails
               </h1>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               {wallet.connected && (
-                <div className="flex items-center gap-2 bg-jupiter-darkSecondary/50 px-3 py-2 border border-jupiter-purple-600/30 rounded-lg">
+                <div className="hidden sm:flex items-center gap-2 bg-jupiter-darkSecondary/50 px-3 py-2 border border-jupiter-purple-600/30 rounded-lg">
                   <Wallet className="w-4 h-4 text-jupiter-secondary" />
                   <span className="font-mono text-white text-sm">
                     {walletBalance.toFixed(4)} SOL
                   </span>
                 </div>
               )}
-              <WalletMultiButton>
-                {wallet.connected ? "Connected" : "Connect Wallet"}
-              </WalletMultiButton>
+              <div className="flex-shrink-0">
+                <WalletMultiButton>
+                  {wallet.connected ? "Connected" : "Connect"}
+                </WalletMultiButton>
+              </div>
             </div>
           </div>
 
@@ -469,11 +471,11 @@ export const JupiterVisualizer: React.FC = () => {
 
       {/* Main Content */}
       <div className="flex flex-col flex-1 overflow-hidden">
-        <div className="flex flex-col flex-1 mx-auto px-8 pb-4 max-w-full container">
+        <div className="flex flex-col flex-1 mx-auto px-4 sm:px-8 pb-4 max-w-full container">
           {/* Main Layout */}
-          <div className="flex-1 gap-4 grid grid-cols-1 lg:grid-cols-12 h-full overflow-hidden">
+          <div className="flex-1 gap-4 grid grid-cols-1 xl:grid-cols-12 h-full overflow-hidden">
             {/* Control Panel */}
-            <div className="flex flex-col lg:col-span-4">
+            <div className="flex flex-col order-1 xl:order-1 xl:col-span-4 min-h-fit">
               <ControlPanel
                 inputToken={inputToken}
                 outputToken={outputToken}
@@ -497,7 +499,7 @@ export const JupiterVisualizer: React.FC = () => {
             </div>
 
             {/* Route Visualization */}
-            <div className="flex flex-col lg:col-span-8 overflow-hidden">
+            <div className="flex flex-col order-2 xl:order-2 xl:col-span-8 min-h-[300px] xl:min-h-0 overflow-hidden">
               <RouteDiagram routeData={routeData} loading={loading} />
             </div>
           </div>

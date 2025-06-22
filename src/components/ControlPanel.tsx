@@ -160,19 +160,21 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
   };
 
   return (
-    <div className="bg-gradient-to-br from-jupiter-dark to-jupiter-darkSecondary shadow-2xl backdrop-blur-sm p-6 border border-jupiter-purple-700 rounded-2xl">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="flex justify-center items-center bg-gradient-to-r from-jupiter-primary to-jupiter-secondary rounded-lg w-8 h-8">
-          <Zap className="w-4 h-4 text-white" />
+    <div className="bg-gradient-to-br from-jupiter-dark to-jupiter-darkSecondary shadow-2xl backdrop-blur-sm p-4 sm:p-6 border border-jupiter-purple-700 rounded-2xl">
+      <div className="flex items-center gap-3 mb-4 sm:mb-6">
+        <div className="flex justify-center items-center bg-gradient-to-r from-jupiter-primary to-jupiter-secondary rounded-lg w-6 sm:w-8 h-6 sm:h-8">
+          <Zap className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
         </div>
-        <h2 className="font-space font-bold text-white text-xl">Swap</h2>
+        <h2 className="font-space font-bold text-white text-lg sm:text-xl">
+          Swap
+        </h2>
       </div>
 
       <div className="relative">
         {/* FROM */}
-        <div className="bg-jupiter-darkSecondary/50 p-4 border border-jupiter-purple-600/20 rounded-2xl">
-          <div className="flex items-center gap-4">
-            <div className="w-[30%]">
+        <div className="bg-jupiter-darkSecondary/50 p-3 sm:p-4 border border-jupiter-purple-600/20 rounded-2xl">
+          <div className="flex sm:flex-row flex-col sm:items-center gap-3 sm:gap-4">
+            <div className="w-full sm:w-[30%]">
               <TokenSelector
                 selectedToken={inputToken}
                 onTokenSelect={onInputTokenChange}
@@ -183,13 +185,13 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
                 disabled={tokensLoading}
               />
             </div>
-            <div className="w-[70%]">
+            <div className="w-full sm:w-[70%]">
               <input
                 type="text"
                 inputMode="decimal"
                 value={amountInput}
                 onChange={(e) => handleAmountChange(e.target.value)}
-                className="bg-transparent border-none outline-none w-full font-bold text-white text-3xl text-left placeholder-gray-400 focus:placeholder-gray-500"
+                className="bg-transparent border-none outline-none w-full font-bold text-white text-2xl sm:text-3xl text-left placeholder-gray-400 focus:placeholder-gray-500"
                 placeholder="0.0"
               />
               <div className="text-gray-400 text-sm text-left">
@@ -203,7 +205,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
         </div>
 
         {/* Swap Arrow */}
-        <div className="top-1/2 right-[10%] z-10 absolute -translate-y-1/2 transform">
+        <div className="hidden sm:block top-1/2 right-[20%] z-10 absolute -translate-y-1/2 transform">
           <button
             onClick={onSwapTokens}
             className="flex justify-center items-center bg-jupiter-dark shadow-xl border-2 border-jupiter-purple-600/50 hover:border-jupiter-primary rounded-full w-12 h-12 hover:rotate-180 hover:scale-105 transition-all transform"
@@ -212,10 +214,20 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
           </button>
         </div>
 
+        {/* Mobile Swap Arrow */}
+        <div className="sm:hidden flex justify-center items-center -my-2">
+          <button
+            onClick={onSwapTokens}
+            className="z-10 flex justify-center items-center bg-jupiter-dark shadow-xl border-2 border-jupiter-purple-600/50 hover:border-jupiter-primary rounded-full w-12 h-12 hover:rotate-180 hover:scale-105 transition-all mobile-touch-button"
+          >
+            <ArrowUpDown className="w-5 h-5 text-jupiter-primary" />
+          </button>
+        </div>
+
         {/* TO */}
-        <div className="bg-jupiter-darkSecondary/50 p-4 border border-jupiter-purple-600/20 rounded-2xl">
-          <div className="flex items-center gap-4">
-            <div className="w-[30%]">
+        <div className="bg-jupiter-darkSecondary/50 p-3 sm:p-4 border border-jupiter-purple-600/20 rounded-2xl">
+          <div className="flex sm:flex-row flex-col sm:items-center gap-3 sm:gap-4">
+            <div className="w-full sm:w-[30%]">
               <TokenSelector
                 selectedToken={outputToken}
                 onTokenSelect={onOutputTokenChange}
@@ -226,13 +238,13 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
                 disabled={tokensLoading}
               />
             </div>
-            <div className="w-[70%]">
+            <div className="w-full sm:w-[70%]">
               <input
                 type="text"
                 inputMode="decimal"
                 value={outputAmountInput}
                 onChange={(e) => handleOutputAmountChange(e.target.value)}
-                className={`bg-transparent border-none outline-none w-full font-bold text-3xl text-left placeholder-gray-400 focus:placeholder-gray-500 ${
+                className={`bg-transparent border-none outline-none w-full font-bold text-2xl sm:text-3xl text-left placeholder-gray-400 focus:placeholder-gray-500 ${
                   onOutputAmountChange
                     ? "text-white cursor-text"
                     : "text-gray-400 cursor-not-allowed"
@@ -254,14 +266,14 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 
       {/* Slippage */}
       <div className="mt-4 mb-4">
-        <div className="bg-jupiter-darkSecondary/50 p-4 border border-jupiter-purple-600/20 rounded-2xl">
-          <div className="flex items-center gap-4">
-            <div className="w-[30%]">
+        <div className="bg-jupiter-darkSecondary/50 p-3 sm:p-4 border border-jupiter-purple-600/20 rounded-2xl">
+          <div className="flex sm:flex-row flex-col sm:items-center gap-3 sm:gap-4">
+            <div className="w-full sm:w-[30%]">
               <div className="relative">
                 <label className="-top-2.5 left-3 z-10 absolute bg-gradient-to-r from-jupiter-dark to-jupiter-darkSecondary px-2 border-jupiter-purple-600/30 border-r border-l rounded-sm font-medium text-jupiter-secondary text-xs">
                   Slippage
                 </label>
-                <div className="flex justify-center items-center bg-transparent px-4 py-3 border border-jupiter-purple-600 hover:border-jupiter-purple-500 rounded-lg w-full text-white">
+                <div className="flex justify-center items-center bg-transparent px-3 sm:px-4 py-2 sm:py-3 border border-jupiter-purple-600 hover:border-jupiter-purple-500 rounded-lg w-full min-h-[44px] text-white">
                   <div className="flex items-center gap-2">
                     <Droplets className="w-4 h-4 text-gray-400" />
                     <span className="font-medium text-sm">%</span>
@@ -269,13 +281,13 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
                 </div>
               </div>
             </div>
-            <div className="w-[70%]">
+            <div className="w-full sm:w-[70%]">
               <input
                 type="text"
                 inputMode="decimal"
                 value={slippageInput}
                 onChange={(e) => handleSlippageChange(e.target.value)}
-                className="bg-transparent border-none outline-none w-full font-bold text-white text-3xl text-left placeholder-gray-400 focus:placeholder-gray-500"
+                className="bg-transparent border-none outline-none w-full font-bold text-white text-2xl sm:text-3xl text-left placeholder-gray-400 focus:placeholder-gray-500"
                 placeholder="0.5"
               />
               <div className="text-gray-400 text-sm text-left">
@@ -291,7 +303,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
         <button
           onClick={onGetRoute}
           disabled={loading || amount <= 0}
-          className="group relative bg-gradient-to-r from-jupiter-primary hover:from-jupiter-purple-600 disabled:from-gray-600 via-jupiter-purple-500 hover:via-jupiter-purple-400 disabled:via-gray-700 to-jupiter-secondary hover:to-jupiter-green-500 disabled:to-gray-600 shadow-xl hover:shadow-2xl disabled:shadow-none px-6 py-4 rounded-2xl w-full overflow-hidden font-bold text-white text-lg hover:scale-[1.02] disabled:scale-100 transition-all duration-300 disabled:cursor-not-allowed transform"
+          className="group relative bg-gradient-to-r from-jupiter-primary hover:from-jupiter-purple-600 disabled:from-gray-600 via-jupiter-purple-500 hover:via-jupiter-purple-400 disabled:via-gray-700 to-jupiter-secondary hover:to-jupiter-green-500 disabled:to-gray-600 shadow-xl hover:shadow-2xl disabled:shadow-none px-6 py-4 rounded-2xl w-full overflow-hidden font-bold text-white text-lg hover:scale-[1.02] disabled:scale-100 transition-all duration-300 disabled:cursor-not-allowed route-button transform"
         >
           {loading ? (
             <div className="z-10 relative flex justify-center items-center gap-3">
@@ -313,7 +325,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
           <button
             onClick={onExecuteSwap}
             disabled={loading || amount <= 0 || isSwapping}
-            className="group relative bg-gradient-to-r from-jupiter-green-600 hover:from-jupiter-green-500 disabled:from-gray-600 via-jupiter-green-500 hover:via-jupiter-green-400 disabled:via-gray-700 to-jupiter-green-400 hover:to-jupiter-green-300 disabled:to-gray-600 shadow-xl hover:shadow-2xl disabled:shadow-none px-6 py-4 border border-jupiter-green-500/30 hover:border-jupiter-green-400/50 disabled:border-gray-600/30 rounded-2xl w-full overflow-hidden font-bold text-white text-lg hover:scale-[1.02] disabled:scale-100 transition-all duration-300 disabled:cursor-not-allowed transform"
+            className="group relative bg-gradient-to-r from-jupiter-green-600 hover:from-jupiter-green-500 disabled:from-gray-600 via-jupiter-green-500 hover:via-jupiter-green-400 disabled:via-gray-700 to-jupiter-green-400 hover:to-jupiter-green-300 disabled:to-gray-600 shadow-xl hover:shadow-2xl disabled:shadow-none px-6 py-4 border border-jupiter-green-500/30 hover:border-jupiter-green-400/50 disabled:border-gray-600/30 rounded-2xl w-full overflow-hidden font-bold text-white text-lg hover:scale-[1.02] disabled:scale-100 transition-all duration-300 disabled:cursor-not-allowed swap-button transform"
           >
             {isSwapping ? (
               <div className="z-10 relative flex justify-center items-center gap-3">

@@ -406,13 +406,13 @@ export const RouteDiagram: React.FC<RouteDiagramProps> = ({
         },
         style: {
           stroke: "#9945FF",
-          strokeWidth: 2,
+          strokeWidth: 3,
         },
         markerEnd: {
           type: MarkerType.ArrowClosed,
           color: "#9945FF",
-          width: 20,
-          height: 20,
+          width: 24,
+          height: 24,
         },
       });
 
@@ -456,13 +456,13 @@ export const RouteDiagram: React.FC<RouteDiagramProps> = ({
           },
           style: {
             stroke: isLastHop ? "#14F195" : "#9945FF",
-            strokeWidth: 2,
+            strokeWidth: 3,
           },
           markerEnd: {
             type: MarkerType.ArrowClosed,
             color: isLastHop ? "#14F195" : "#9945FF",
-            width: 20,
-            height: 20,
+            width: 24,
+            height: 24,
           },
         });
       }
@@ -474,21 +474,24 @@ export const RouteDiagram: React.FC<RouteDiagramProps> = ({
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
   return (
-    <div className="flex flex-col bg-gradient-to-br from-jupiter-dark to-jupiter-darkSecondary shadow-2xl backdrop-blur-sm p-6 border border-jupiter-purple-700 rounded-2xl h-full">
-      <div className="flex flex-shrink-0 items-center gap-4 mb-4">
-        <div className="flex justify-center items-center bg-gradient-to-r from-jupiter-primary to-jupiter-secondary rounded-xl w-8 h-8">
-          <Zap className="w-4 h-4 text-white" />
+    <div className="flex flex-col bg-gradient-to-br from-jupiter-dark to-jupiter-darkSecondary shadow-2xl backdrop-blur-sm p-3 sm:p-6 border border-jupiter-purple-700 rounded-2xl h-full">
+      <div className="flex flex-shrink-0 items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+        <div className="flex justify-center items-center bg-gradient-to-r from-jupiter-primary to-jupiter-secondary rounded-xl w-6 sm:w-8 h-6 sm:h-8">
+          <Zap className="w-3 sm:w-4 h-3 sm:h-4 text-white" />
         </div>
-        <h2 className="font-space font-bold text-white text-lg">
+        <h2 className="font-space font-bold text-white text-base sm:text-lg">
           Token Swap Route
         </h2>
-        <div className="ml-auto text-gray-400 text-xs">
+        <div className="hidden sm:block ml-auto text-gray-400 text-xs">
           {routeData.hops.length} hop{routeData.hops.length > 1 ? "s" : ""} •
           Via {routeData.hops.map((h) => h.amm).join(" → ")}
         </div>
+        <div className="sm:hidden ml-auto text-gray-400 text-xs">
+          {routeData.hops.length} hop{routeData.hops.length > 1 ? "s" : ""}
+        </div>
       </div>
       {/* Main flow diagram */}
-      <div className="flex-1 bg-gradient-to-br from-gray-900/50 to-black/50 mb-4 border border-jupiter-purple-600/30 rounded-xl overflow-hidden">
+      <div className="flex-1 bg-gradient-to-br from-gray-900/50 to-black/50 mb-3 sm:mb-4 border border-jupiter-purple-600/30 rounded-xl overflow-hidden">
         {" "}
         <ReactFlow
           nodes={nodes}
@@ -509,6 +512,9 @@ export const RouteDiagram: React.FC<RouteDiagramProps> = ({
           zoomOnDoubleClick={false}
           preventScrolling={false}
           nodeOrigin={[0.5, 0.5]}
+          deleteKeyCode={null}
+          multiSelectionKeyCode={null}
+          selectNodesOnDrag={false}
         >
           <Background
             color="#6D28D9"
@@ -519,9 +525,10 @@ export const RouteDiagram: React.FC<RouteDiagramProps> = ({
           <Controls
             className="bg-jupiter-darkSecondary/80 backdrop-blur-sm border-jupiter-purple-600 rounded-lg"
             showInteractive={false}
-          />
-          {/* Compact Route Analysis Overlay */}
-          <div className="top-4 right-4 z-10 absolute bg-black/80 backdrop-blur-md p-3 border border-jupiter-primary/30 rounded-xl min-w-48">
+          />{" "}
+          {/* Compact Route Analysis Overlay - Hidden on mobile */}
+          <div className="hidden md:block top-4 right-4 z-10 absolute bg-black/80 backdrop-blur-md p-3 border border-jupiter-primary/30 rounded-xl min-w-48">
+            {" "}
             {/* Header with score */}
             <div className="flex justify-between items-center mb-3">
               <div className="flex items-center gap-2">
@@ -559,7 +566,6 @@ export const RouteDiagram: React.FC<RouteDiagramProps> = ({
                 })}
               </div>
             </div>
-
             {/* Compact metrics */}
             <div className="space-y-2">
               <div className="flex justify-between items-center">

@@ -140,30 +140,49 @@ export const TokenSelector: React.FC<TokenSelectorProps> = ({
         <button
           onClick={() => setIsOpen(!isOpen)}
           disabled={disabled}
-          className="flex justify-between items-center bg-transparent disabled:opacity-50 px-4 py-3 border border-jupiter-purple-600 hover:border-jupiter-purple-500 focus:border-jupiter-primary rounded-lg focus:ring-2 focus:ring-jupiter-primary w-full text-white transition-all disabled:cursor-not-allowed"
+          className="flex justify-between items-center bg-transparent disabled:opacity-50 px-3 sm:px-4 py-2 sm:py-3 border border-jupiter-purple-600 hover:border-jupiter-purple-500 focus:border-jupiter-primary rounded-lg focus:ring-2 focus:ring-jupiter-primary w-full min-h-[44px] text-white transition-all disabled:cursor-not-allowed token-selector-button"
         >
-          <div className="flex items-center gap-3">
+          <div className="flex flex-1 items-center gap-2 sm:gap-3 min-w-0">
             {selectedToken.logoURI ? (
               <img
                 src={selectedToken.logoURI}
                 alt={selectedToken.name}
-                className="rounded-full w-6 h-6"
+                className="flex-shrink-0 rounded-full w-5 sm:w-6 h-5 sm:h-6"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "";
                   (e.target as HTMLImageElement).style.display = "none";
                 }}
               />
             ) : (
-              <span className="text-lg">{selectedToken.logo}</span>
+              <span className="flex-shrink-0 text-base sm:text-lg">
+                {selectedToken.logo}
+              </span>
             )}
-            <div className="text-left">
-              <div className="font-medium">{selectedToken.symbol}</div>
+            <div className="min-w-0 text-left">
+              <div className="font-medium text-sm sm:text-base truncate">
+                {selectedToken.symbol}
+              </div>
             </div>
+          </div>{" "}
+          <div className="sm:hidden flex-shrink-0 ml-2">
+            <svg
+              className="w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </div>
         </button>
       </div>{" "}
       {isOpen && (
-        <div className="top-full left-0 z-[9999] absolute bg-jupiter-darkSecondary shadow-2xl mt-1 border border-jupiter-purple-600 rounded-lg w-max min-w-[300px] max-w-[400px] overflow-hidden">
+        <div className="top-full left-0 z-[9999] absolute bg-jupiter-darkSecondary shadow-2xl mt-1 border border-jupiter-purple-600 rounded-lg w-full sm:w-max sm:min-w-[300px] sm:max-w-[400px] max-h-[300px] sm:max-h-none overflow-hidden token-dropdown">
           {/* Search */}
           <div className="p-3 border-jupiter-purple-700 border-b">
             <div className="relative">
@@ -178,8 +197,8 @@ export const TokenSelector: React.FC<TokenSelectorProps> = ({
               />
             </div>
           </div>{" "}
-          {/* Token List with Custom Scrollbar - Show exactly 3 tokens */}
-          <div className="max-h-[192px] overflow-y-auto custom-scrollbar">
+          {/* Token List with Custom Scrollbar - Show exactly 3 tokens on desktop, more on mobile */}
+          <div className="max-h-[240px] sm:max-h-[192px] overflow-y-auto custom-scrollbar">
             {isSearching ? (
               <div className="p-4 text-gray-400 text-center">
                 <div className="inline-block mr-2 border-2 border-jupiter-primary border-t-transparent rounded-full w-4 h-4 animate-spin"></div>
@@ -200,19 +219,21 @@ export const TokenSelector: React.FC<TokenSelectorProps> = ({
                     <img
                       src={token.logoURI}
                       alt={token.name}
-                      className="flex-shrink-0 rounded-full w-8 h-8"
+                      className="flex-shrink-0 rounded-full w-6 sm:w-8 h-6 sm:h-8"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = "";
                         (e.target as HTMLImageElement).style.display = "none";
                       }}
                     />
                   ) : (
-                    <span className="flex-shrink-0 text-xl">{token.logo}</span>
+                    <span className="flex-shrink-0 text-lg sm:text-xl">
+                      {token.logo}
+                    </span>
                   )}
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-white">
+                      <span className="font-medium text-white text-sm sm:text-base">
                         {token.symbol}
                       </span>
                       {token.tags?.includes("verified") && (
@@ -224,7 +245,7 @@ export const TokenSelector: React.FC<TokenSelectorProps> = ({
                         <TrendingUp className="w-3 h-3 text-jupiter-green-400" />
                       )}
                     </div>
-                    <div className="text-gray-400 text-sm truncate">
+                    <div className="text-gray-400 text-xs sm:text-sm truncate">
                       {token.name}
                     </div>
                     {token.daily_volume && (
