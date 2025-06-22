@@ -1,5 +1,7 @@
 # JupiTrails 🚀
 
+[![Loom Video Demo](https://img.shields.io/badge/Watch%20Demo-Loom-5046e5?style=for-the-badge&logo=loom)](https://www.loom.com/share/99db3caa94a24850b0764501fdf62f5b?sid=464c7eee-fb4a-401a-9098-ec0b7d45994e)
+
 <div align="center">
   <img src="./public/assets/logo.svg" alt="JupiTrails Logo" width="100" height="100">
   <h3>Visualize and analyze optimal swap routes on Solana using Jupiter's aggregation technology</h3>
@@ -308,7 +310,29 @@ Advanced token selection component with search functionality, verification badge
 - **Advanced Analytics**: Trading history, performance tracking, and portfolio insights
 - **API Rate Optimization**: Enhanced caching and request optimization strategies
 
-## 🔗 Links
+## � Team Nexus
+
+JupiTrails is proudly developed by **Team Nexus**, a collaborative group of passionate developers dedicated to advancing DeFi innovation on Solana.
+
+### Team Members
+
+<div align="center">
+
+| Name                   | Email                         |
+| ---------------------- | ----------------------------- |
+| **Ch. Shashi Vardhan** | shashihacker18@gmail.com      |
+| **Shivamani Yamana**   | shivamaniyamana2003@gmail.com |
+| **Mandula Srinivas**   | srinuchinna2005@gmail.com     |
+| **T Savith**           | savittupaki@gmail.com         |
+| **Richitha**           | richitha00@gmail.com          |
+
+</div>
+
+### Our Mission
+
+Team Nexus is committed to creating innovative solutions that make DeFi more accessible, transparent, and user-friendly. Through JupiTrails, we demonstrate our expertise in modern web technologies, blockchain integration, and user experience design.
+
+## �🔗 Links
 
 - **Live Demo**: [Deployed on Vercel](https://jupitrails.vercel.app/)
 - **GitHub Repository**: [Source Code](https://github.com/shivamani-yamana/jupitrails)
