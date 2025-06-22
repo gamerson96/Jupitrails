@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar for Jupiter Theme */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed #1a1b23;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1b23;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #10b981);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8b5cf6, #34d399);
+}
+
+/* Slider styles for slippage control */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #10b981);
+  border: 2px solid #1a1b23;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed, #10b981);
+  border: 2px solid #1a1b23;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+/* Connect Wallet Button Only - Jupiter Theme */
+.wallet-adapter-button:not(.wallet-adapter-button-trigger) {
+  background: linear-gradient(135deg, #7c3aed, #10b981) !important;
+}
+
+.wallet-adapter-button:not(.wallet-adapter-button-trigger):hover {
+  background: linear-gradient(135deg, #8b5cf6, #34d399) !important;
+}
+
+/* Connected Wallet Button - Jupiter Theme */
+.wallet-adapter-button-trigger {
+  background: linear-gradient(135deg, #7c3aed, #10b981) !important;
+}
+
+.wallet-adapter-button-trigger:hover {
+  background: linear-gradient(135deg, #8b5cf6, #34d399) !important;
+}
