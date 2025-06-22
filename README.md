@@ -95,15 +95,15 @@ JupiTrails leverages Jupiter v6 API endpoints with custom enhancements:
 
 #### Custom Enhancements Over Standard Jupiter API Use
 
-| Feature                    | Jupiter Native API          | JupiTrails                                        |
-| -------------------------- | --------------------------- | ------------------------------------------------- |
-| **Route Visualization**    | ❌ No visual representation | ✅ Interactive route diagrams                     |
-| **Multiple Route Display** | ❌ Top route only           | ✅ All available route options                    |
-| **Interactive UI**         | ❌ Minimal interface        | ✅ Fully interactive experience                   |
-| **Custom Token Lists**     | ❌ Basic token support      | ✅ Custom tokens with verification                |
-| **UX Enhancements**        | ❌ Basic functionality      | ✅ Copy handlers, animations, mobile optimization |
-| **Developer Experience**   | ❌ API-focused              | ✅ Modular, hackable design                       |
-| **Educational Value**      | ❌ Black box operations     | ✅ Transparent route education                    |
+| Feature                    | Jupiter Native API          | JupiTrails                         |
+| -------------------------- | --------------------------- | ---------------------------------- |
+| **Route Visualization**    | ❌ No visual representation | ✅ Interactive route diagrams      |
+| **Multiple Route Display** | ❌ Top route only           | ✅ All available route options     |
+| **Interactive UI**         | ❌ Minimal interface        | ✅ Fully interactive experience    |
+| **Custom Token Lists**     | ❌ Basic token support      | ✅ Custom tokens with verification |
+| **UX Enhancements**        | ❌ Basic functionality      | ✅ Animations, mobile optimization |
+| **Developer Experience**   | ❌ API-focused              | ✅ Modular, hackable design        |
+| **Educational Value**      | ❌ Black box operations     | ✅ Transparent route education     |
 
 ### Technical Highlights
 
@@ -156,7 +156,7 @@ src/
 
 ### How It Works
 
-1. **Wallet Connection**: User connects wallet via WalletButton using any Solana-compatible wallet
+1. **Wallet Connection**: User connects wallet using any Solana-compatible wallet
 2. **Token Discovery**: Tokens are fetched from Jupiter's token API and displayed in TokenSelector
 3. **Route Fetching**: Upon selecting tokens, Jupiter v6 API is triggered, fetching all available swap routes
 4. **Route Visualization**: Routes are visually rendered using JupiterVisualizer and RouteDiagram
@@ -235,7 +235,7 @@ JupiTrails introduces several unique features to the Jupiter ecosystem:
 - **🔍 Transparency-First Design**: Everything is user-visible — no black boxes in DeFi operations
 - **🛠️ Developer-Focused Architecture**: Clean hooks and modular files for easy expansion and customization
 - **⚡ Hackathon-Ready**: Fast setup, no complex backend needed. Ideal for DeFi exploration applications
-- **✨ UX Attention to Detail**: Features like wallet address copy handlers, smooth animations, and comprehensive error fallbacks
+- **✨ UX Attention to Detail**: Features like wallet address management, smooth animations, and comprehensive error fallbacks
 - **📊 Multiple Route Analysis**: Deep route comparison and selection capabilities beyond standard implementations
 
 ### Technical Excellence
